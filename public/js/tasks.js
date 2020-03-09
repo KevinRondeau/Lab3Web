@@ -5,6 +5,8 @@ window.addEventListener('DOMContentLoaded', e => {
     const newDesc = document.querySelector('#Description')
     const Table = document.querySelector('table')
 
+    /* --------------------------------- addTask -------------------------------- */
+    //#region 
     taskForm.addEventListener('submit', (e) => {
         e.preventDefault()
         axios.
@@ -19,4 +21,10 @@ window.addEventListener('DOMContentLoaded', e => {
             })
 
     })
+    //#endregion
+
+    /* ------------------------------- deleteTask ------------------------------- */
+    //#region 
+    //TODO  deletTask Event
+    //#endregion
 })

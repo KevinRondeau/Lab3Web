@@ -1,15 +1,23 @@
 /* --------------------------------- Modules -------------------------------- */
+//#region 
 const router = require('express').Router()
 const taskHandler = require('../data/tasks.js')
 //#endregion
 
+/* --------------------------------- Globals -------------------------------- */
+//#region 
 const tasks = taskHandler.loadTasks()
 let index = tasks.length + 1
+//#endregion
+
 /* --------------------------------- Routes --------------------------------- */
+//#region 
 router.get('/', (req, res) => {
     res.render('tasks', { tasks })
 })
 
+/* ------------------------------ addTaskRoute ------------------------------ */
+//#region 
 router.post('/:title/:description', (req, res) => {
     const newTask = { index: index, title: req.params.title, description: req.params.description }
     try {
@@ -20,5 +28,13 @@ router.post('/:title/:description', (req, res) => {
         console.log(e)
     }
 })
+//#endregion
+
+/* ----------------------------- deleteTaskRoute ---------------------------- */
+//#region 
+//TODO DeleteTask Endpoint
+//#endregion
+
+//#endregion
 
 module.exports = router
