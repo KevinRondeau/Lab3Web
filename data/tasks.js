@@ -42,7 +42,7 @@ const addTask = (index, title, description) => {
 /* ------------------------------- removeTask ------------------------------- */
 //#region 
 const removeTask = (Index) => {
-    const tasks = loadNotes()
+    const tasks = loadTasks()
     const tasksToKeep = tasks.filter((task) => task.index != Index)
     if (tasks.length > tasksToKeep.length) {
         saveTasks(tasksToKeep)

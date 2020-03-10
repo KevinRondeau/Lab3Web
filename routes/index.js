@@ -1,8 +1,6 @@
 /* --------------------------------- Modules -------------------------------- */
-//#region 
 const router = require('express').Router()
 const taskRoute = require('./tasks.routes')
-//#endregion
 
 /* --------------------------------- Routes --------------------------------- */
 router.use('/tasks', taskRoute)

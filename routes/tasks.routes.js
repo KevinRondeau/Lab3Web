@@ -6,7 +6,7 @@ const taskHandler = require('../data/tasks.js')
 
 /* --------------------------------- Globals -------------------------------- */
 //#region 
-const tasks = taskHandler.loadTasks()
+let tasks = taskHandler.loadTasks()
 let index = tasks.length + 1
 //#endregion
 
@@ -21,9 +21,10 @@ router.get('/', (req, res) => {
 router.post('/:title/:description', (req, res) => {
     const newTask = { index: index, title: req.params.title, description: req.params.description }
     try {
+        res.render('includes/task', { task: newTask })
         taskHandler.addTask(index, newTask.title, newTask.description)
         index++
-        res.render('includes/task', { task: newTask })
+        tasks = taskHandler.loadTasks()
     } catch (e) {
         console.log(e)
     }
@@ -32,7 +33,16 @@ router.post('/:title/:description', (req, res) => {
 
 /* ----------------------------- deleteTaskRoute ---------------------------- */
 //#region 
-//TODO DeleteTask Endpoint
+router.delete('/:index', (req, res) => {
+    try {
+        taskHandler.removeTask(index)
+        res.status(400).send()
+        task = taskHandler.loadTasks()
+    } catch (e) {
+        console.log(e)
+    }
+
+})
 //#endregion
 
 //#endregion
