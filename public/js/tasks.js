@@ -26,17 +26,13 @@ addBtn.addEventListener('click', (e) => {
 /* ------------------------------- deleteTask ------------------------------- */
 //#region 
 function removeRow(index, thisRow) {
-    // function SomeDeleteRowFunction(o) {
-    //     //no clue what to put here?
-    //     var p=o.parentNode.parentNode;
-    //         p.parentNode.removeChild(p);
-    //    }
+
     axios.
         delete('/tasks/' + index)
         .then(res => {
             let delRow = thisRow.parentNode.parentNode
-            delRow.parentNode.removeChild(delRow);
-            //Table.deleteRow(delRow)
+            delRow.parentNode.removeChild(delRow)
+
             return console.log(res.data)
         }).catch(err => {
             console.log(err)

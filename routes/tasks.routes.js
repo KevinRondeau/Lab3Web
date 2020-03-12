@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
 //#region 
 router.post('/:title/:description', (req, res) => {
 
-    const newTask = { index: index, title: req.params.title, description: req.params.description }
+    const newTask = { index: tasks[0].index + 1, title: req.params.title, description: req.params.description }
     try {
         res.render('includes/task', { task: newTask })
         taskHandler.addTask(index, newTask.title, newTask.description)
@@ -42,9 +42,7 @@ router.delete('/:ind', (req, res) => {
         taskHandler.removeTask(req.params.ind)
         res.status(200).send(req.params)
         tasks = taskHandler.loadTasks()
-        index = tasks(tasks[tasks.length].index)
-        index++
-        res.render('includes/task', { tasks })
+        index = tasks[0].index + 1
     } catch (e) {
         console.log(e)
     }
