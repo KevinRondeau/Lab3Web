@@ -36,7 +36,7 @@ router.post('/:title/:description', (req, res) => {
 //#region 
 
 router.delete('/:ind', (req, res) => {
-    console.log(req.params.ind)
+    // console.log(req.params.ind)
     try {
 
         taskHandler.removeTask(req.params.ind)
