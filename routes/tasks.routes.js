@@ -7,8 +7,9 @@ const taskHandler = require('../data/tasks.js')
 /* --------------------------------- Globals -------------------------------- */
 //#region 
 let tasks = taskHandler.loadTasks()
+let index
 if (tasks.length > 0) {
-    let index = tasks[0].index + 1
+    index = tasks[0].index + 1
 } else {
     index = 0
 }
