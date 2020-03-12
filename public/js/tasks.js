@@ -1,5 +1,4 @@
 /* ------------------------------ eventListener ----------------------------- */
-//const taskForm = document.querySelector('#taskForm')
 const newName = document.querySelector('#Name')
 const newDesc = document.querySelector('#Description')
 const Table = document.querySelector('table')
