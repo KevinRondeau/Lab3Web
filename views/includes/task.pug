@@ -1,6 +1,6 @@
 tr
-          th(scope="row")= task.index
+          th(scope="row" index=task.index)= task.index
           td= task.title
           td= task.description
           td
-            input(class='deleteButton' class="btn btn-outline-danger" value='Supprimer')
+            input(class='deleteButton' index=task.index class="btn btn-outline-danger" value='Supprimer' readonly onclick="removeRow("+task.index+",this)" )

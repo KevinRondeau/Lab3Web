@@ -4,7 +4,6 @@ const newName = document.querySelector('#Name')
 const newDesc = document.querySelector('#Description')
 const Table = document.querySelector('table')
 const addBtn = document.querySelector('#addButton')
-const delBtn = document.getElementsByClassName('deleteButton')
 
 /* --------------------------------- addTask -------------------------------- */
 //#region 
@@ -26,18 +25,23 @@ addBtn.addEventListener('click', (e) => {
 
 /* ------------------------------- deleteTask ------------------------------- */
 //#region 
-//FIXME 
-// delBtn[i].addEventListener('click', (e) => {
-//     e.preventDefault()
-//     axios.delete('/tasks/' + i)
-//         .then(res => {
-//             Table.deleteRow(res.data.index)
-//             return console.log(res.data)
-//         }).catch(err => {
-//             console.log(err)
-//         })
+function removeRow(index, thisRow) {
+    // function SomeDeleteRowFunction(o) {
+    //     //no clue what to put here?
+    //     var p=o.parentNode.parentNode;
+    //         p.parentNode.removeChild(p);
+    //    }
+    axios.
+        delete('/tasks/' + index)
+        .then(res => {
+            let delRow = thisRow.parentNode.parentNode
+            delRow.parentNode.removeChild(delRow);
+            //Table.deleteRow(delRow)
+            return console.log(res.data)
+        }).catch(err => {
+            console.log(err)
+        })
 
-// })
-
+}
 
  //#endregion
